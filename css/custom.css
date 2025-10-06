@@ -1,0 +1,275 @@
+/* 首页头图加载 */
+.pl-container {
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    position: fixed;
+    overflow: hidden;
+    will-change: transform; /* 添加性能优化 */
+    animation: blur-to-clear 2s cubic-bezier(.62,.21,.25,1) 0s 1 normal backwards running, scale 1.5s cubic-bezier(.62,.21,.25,1) 0s 1 both;
+  }
+  .pl-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1s;
+  }
+  
+  @keyframes blur-to-clear {
+    0% {
+      filter: blur(50px);
+      opacity: 1;
+    }
+    100% {
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes scale {
+    0% {
+      transform: scale(1.5) translateZ(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1) translateZ(0);
+      opacity: 1;
+    }
+  }
+  
+  .pl-visible {
+    opacity: 1;
+  }
+  
+  .pl-blur {
+   /* 小图锯齿多，增加高斯模糊 */
+    filter: blur(50px);
+  }
+
+/* 页脚透明 */
+/* #footer {
+    background: transparent !important;
+  } */
+  
+/* 头图透明 */
+#page-header {
+    background: transparent !important;
+  }
+/* 底部透明 */
+#footer-bar{
+    background: transparent !important;
+}
+
+/* 更多透明 */
+/* #category-bar{
+    background: transparent !important;
+} */
+
+// 旅行者一号
+
+#voyager-container {
+  margin: 8px 0;
+  padding: 5px 0;
+}
+
+#voyager-info {
+  font-size: 13px;
+  margin: 0;
+  opacity: 0.8;
+}
+
+#voyager-days {
+  font-weight: bold;
+  color: #ff5722;
+}
+
+#voyager-distance {
+  font-weight: bold;
+  color: #3f51b5;
+}
+
+// 梦爱吃鱼大佬的自定义css
+/* 隐藏点赞 */
+/* 引用链接隐藏外部提示 */
+.tk-action .tk-action-link:first-child,
+.tag-link-tips {
+    display: none!important;
+}
+
+/* 手机端搜索栏样式 */
+@media screen and (max-width: 768px), (max-height: 580px) {
+    .search-dialog {
+        top: 2rem!important;
+        left: 5%!important;
+        width: 90%!important;
+        height: auto!important;
+        border-radius: 10px!important;
+    }
+}
+
+/* 首页文章的标签位置 */
+#recent-posts > .recent-post-item > .recent-post-info > .article-meta-wrap {
+    bottom: 15px!important;
+}
+
+/* 优化关于界面人生图片 */
+img.author-content-img.no-lightbox.entered.loaded {
+    filter: blur(0) brightness(.8);
+}
+
+/* 轮播下面导航栏分类优化 */
+#catalog-list,
+anzhiyu.barrageContent {
+    scrollbar-width: none;
+}
+
+/* 优化文章顶部分类和标签显示异常 */
+#post-firstinfo .meta-firstline span.post-meta-categories a.post-meta-categories {
+    background: rgb(107 107 107 / 50%)!important;
+}
+
+#post #post-info #post-firstinfo .meta-firstline .article-meta__tags {
+    color: #888!important;
+}
+
+/* 优化手机端文章页面边角露底色 */
+@media screen and (max-width: 768px) {
+    .post .layout#content-inner {
+        background: transparent;
+    }
+}
+
+/* 代码块的边框显示优化 */
+#article-container figure.highlight {
+    border: var(--style-border);
+}
+
+/* 手机端nav栏 */
+#sidebar #sidebar-menus {
+    padding-top: 10px!important;
+}
+
+/* 擦亮效果 */
+#recent-posts > .recent-post-item:not(a)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background: linear-gradient(to right, transparent, white, transparent);
+    transform: translateX(-200%);
+    transition: transform 0.5s linear;
+    z-index: 1;
+}
+
+#recent-posts > .recent-post-item:not(a):hover::before {
+    transform: translateX(100%) skewX(-60deg);
+}
+
+/* Twikoo*/
+/* 评论框背景图优化 */
+.twikoo .el-input__inner,
+.twikoo .el-textarea__inner {
+    transition: background-position-y 0.3s ease-in-out 0s !important;
+}
+
+.twikoo .el-input__inner:focus,
+.twikoo .el-textarea__inner:focus {
+    background-position-y: 350px;
+}
+
+.tk-input .el-textarea__inner {
+    -moz-background-size: contain;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    background-size: contain
+}
+
+/* 评论回复 */
+.tk-action-link {
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+    border: var(--style-border);
+}
+
+.tk-action-link:hover {
+    background: var(--anzhiyu-theme);
+    color: #fff;
+}
+
+/* 评论后台优化 */
+#body-wrap.page .el-input__inner {
+    background: #ffffff0f;
+}
+
+[data-theme=dark] details > summary {
+    background: none!important;
+}
+
+// 友链前端展示
+/* .status-tag {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 3px;
+    border-radius: 6px 0 12px 0;
+    font-size: 10px;
+    color: #fff;
+    font-weight: 700;
+    transition: font-size .3s ease-out, opacity .3s ease-out;
+}
+
+.flink-list-item:hover .status-tag {
+    font-size: 0;
+    opacity: 0;
+}
+
+.status-tag-green { background-color: #599e0b; }
+.status-tag-light-yellow { background-color: #fed101; }
+.status-tag-dark-yellow { background-color: #f0b606; }
+.status-tag-red { background-color: #b90000; } */
+
+/* 侧边栏头像卡片 */
+#aside-content>.card-widget.card-info::before {
+  background: url('https://img.314926.xyz/images/2025/10/04/cover-37.webp');
+  border: 0;
+  position: absolute;
+  background-size: 100% 100%;
+  -webkit-animation: Gradient 10s ease infinite;
+  -moz-animation: Gradient 10s ease infinite;
+  animation: Gradient 10s ease infinite !important;
+}
+
+// moment的css
+/* 说说页面样式 */
+#essay_page .bber-item {
+  background: var(--anzhiyu-card-bg);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  border: var(--style-border);
+}
+
+.bber-content p.datacont {
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.bber-container-img {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.bber-content-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
